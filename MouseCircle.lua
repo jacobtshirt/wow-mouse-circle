@@ -120,7 +120,6 @@ local function RefreshConfigUI()
   addon.configFrame.bSlider.valueText:SetText(string.format("%.2f", color.b))
   addon.configFrame.aSlider.valueText:SetText(string.format("%.2f", color.a))
 
-  addon.configFrame.colorSwatch.texture:SetColorTexture(color.r, color.g, color.b, color.a)
 end
 
 local function EnsureConfigFrame()
@@ -140,7 +139,7 @@ local function EnsureConfigFrame()
 
   frame.title = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   frame.title:SetPoint("LEFT", frame.TitleBg, "LEFT", 8, 0)
-  frame.title:SetText("Mouse Circle Settings")
+  frame.title:SetText("Mouse Circle Configuration")
 
   local sizeSlider = CreateLabeledSlider(frame, "Size", 16, 256, 1, 16, -40)
   sizeSlider:SetScript("OnValueChanged", function(self, value)
@@ -160,7 +159,6 @@ local function EnsureConfigFrame()
         db.color[channel] = rounded
         self.valueText:SetText(string.format("%.2f", rounded))
         ApplySettings()
-        frame.colorSwatch.texture:SetColorTexture(db.color.r, db.color.g, db.color.b, db.color.a)
       end
     end)
   end
@@ -179,18 +177,6 @@ local function EnsureConfigFrame()
   CreateColorHandler("b", bSlider)
   CreateColorHandler("a", aSlider)
 
-  local swatch = CreateFrame("Frame", nil, frame, "BackdropTemplate")
-  swatch:SetSize(64, 64)
-  swatch:SetPoint("TOPRIGHT", frame, "TOPRIGHT", -20, -40)
-  swatch:SetBackdrop({
-    bgFile = "Interface\\Buttons\\WHITE8x8",
-    edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-    edgeSize = 12,
-    insets = { left = 2, right = 2, top = 2, bottom = 2 },
-  })
-  swatch.texture = swatch:CreateTexture(nil, "BACKGROUND")
-  swatch.texture:SetAllPoints()
-  frame.colorSwatch = swatch
 
   addon.configFrame = frame
 end
