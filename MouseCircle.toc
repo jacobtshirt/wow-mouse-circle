@@ -1,0 +1,10 @@
+## Interface: 120001
+## Title: Mouse Circle
+## Notes: A mouse tracker that places a circle around your cursor.
+## Author: jacobtshirt
+## X-Curse-Project-ID: 999999
+## Version: 0.1.0
+## SavedVariables: MouseCircleDB
+
+Config.lua
+MouseCircle.lua
