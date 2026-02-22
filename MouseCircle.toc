@@ -3,7 +3,7 @@
 ## Notes: A mouse tracker that places a circle around your cursor.
 ## Author: jacobtshirt
 ## X-License: MIT
-## X-Curse-Project-ID: 999999
+## X-Curse-Project-ID: 1468449
 ## Version: 0.1.0
 ## SavedVariables: MouseCircleDB
 
